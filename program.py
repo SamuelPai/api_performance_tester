@@ -2,11 +2,12 @@ import requests
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
 import time
-characters = range(1, 100)
+characters = range(1, 10)
 base_url = 'https://rickandmortyapi.com/api/character'
 threads = 20
 
 def get_character_info(character):
+    headers = {"Authorization": "Bearer MYREALLYLONGTOKENIGOT"}
     r = requests.get(f'{base_url}/{character}')
     return r.json()
 
